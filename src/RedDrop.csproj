@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>RedDrop</AssemblyName>
+    <RootNamespace>RedDrop</RootNamespace>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Product>RedDrop</Product>
+    <Version>1.0.0</Version>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- Idle-friendly runtime: no background GC thread, no tiered re-JIT work after startup. -->
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <TieredPGO>false</TieredPGO>
+    <!-- Custom-painted controls expose plain properties; no designer serialization needed. -->
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="icon.ico" LogicalName="app.icon.ico" />
+  </ItemGroup>
+
+  <!--
+    Optional: build a renamed edition for yourself without changing the code.
+    dotnet publish -p:BrandDir=<folder> where the folder holds Brand.props and Brand.cs.
+  -->
+  <Import Project="$(BrandDir)\Brand.props" Condition="'$(BrandDir)' != '' And Exists('$(BrandDir)\Brand.props')" />
+
+</Project>

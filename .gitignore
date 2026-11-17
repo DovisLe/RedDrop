@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+app/
+release/
+dist/
+*.zip
+
+# Settings and logs, if you run the exe from this folder
+*.ini
+*.log
+*.log.old
+
+# Optional local rebrand (see src/RedDrop.csproj)
+/brand/
